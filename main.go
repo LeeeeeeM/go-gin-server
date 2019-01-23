@@ -1,6 +1,10 @@
 package main
 
 import (
+	"fmt"
+	"go-gin-server/common"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,5 +15,13 @@ func main() {
 			"message": "pong",
 		})
 	})
-	router.Run()
+
+	s := &http.Server{
+		Addr:           fmt.Sprintf(":%d", common.HTTPPort),
+		Handler:        router,
+		ReadTimeout:    common.ReadTimeout,
+		WriteTimeout:   common.WriteTimeout,
+		MaxHeaderBytes: 1 << 20,
+	}
+	s.ListenAndServe()
 }
