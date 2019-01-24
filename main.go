@@ -3,18 +3,12 @@ package main
 import (
 	"fmt"
 	"go-gin-server/common"
+	router "go-gin-server/routers"
 	"net/http"
-
-	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	router := gin.Default()
-	router.GET("/test", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	router := router.InitRouter()
 
 	s := &http.Server{
 		Addr:           fmt.Sprintf(":%d", common.HTTPPort),

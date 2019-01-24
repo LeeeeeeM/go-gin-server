@@ -5,6 +5,8 @@ import (
 	"go-gin-server/common"
 	"log"
 
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+
 	"github.com/jinzhu/gorm"
 )
 
@@ -28,7 +30,7 @@ func init() {
 	host := sec.Key("HOST").String()
 	tablePrefix := sec.Key("TABLE_PREFIX").String()
 
-	url := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=local", user, password, host, dbName)
+	url := fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local", user, password, host, dbName)
 
 	db, err = gorm.Open(dbType, url)
 	if err != nil {

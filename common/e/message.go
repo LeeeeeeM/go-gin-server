@@ -1,4 +1,4 @@
-package common
+package e
 
 var MSGGROUP = map[int]string{
 	SUCCESS:                        "ok",
