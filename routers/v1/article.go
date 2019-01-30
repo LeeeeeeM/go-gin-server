@@ -5,9 +5,9 @@ import (
 	"go-gin-server/common/e"
 	"go-gin-server/models"
 	"go-gin-server/util"
+	"go-gin-server/util/logging"
 	"net/http"
 
-	"github.com/EDDYCJY/go-gin-example/pkg/logging"
 	"github.com/Unknwon/com"
 	"github.com/astaxie/beego/validation"
 	"github.com/gin-gonic/gin"
